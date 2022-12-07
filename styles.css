@@ -1,0 +1,203 @@
+body {
+    background-color: #eee0e6;
+    color: black;
+    max-width: 700px;
+    margin: 0px auto;
+    font-family: "Georgia";
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    grid-gap: 8px;
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+    grid-template-areas: "brand navigation tools"
+}
+
+header .brand {
+    background-color: #dcc3c1;
+    background-image: linear-gradient(19deg, #ed8680 0%, #f0deda 100%);
+    grid-area: brand;
+}
+
+header .navigation {
+    background-color: #dcc3c1;
+    background-image: linear-gradient(19deg, #f0deda 0%, #ed8680 100%);
+    grid-area: navigation;
+}
+
+header .tools {
+    background-color: #dcc3c1;
+    background-image: linear-gradient(19deg, #ed8680 0%, #f0deda 100%);
+    grid-area: tools;
+}
+
+main {
+    background: #eee0e6;
+    grid-area: body;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: rgb(196, 188, 230);
+    grid-area: feature;
+}
+
+main .mobile-kitten {
+    grid-area: ad;
+}
+
+main .listing {
+    background: rgb(187, 175, 245);
+    grid-area: listing;
+}
+
+.hero {
+    background-color: #eee0e6;
+    grid-area: hero;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "action";
+}
+
+.hero .feature {
+    background: #ffdca9;
+    grid-area: feature;
+}
+
+.hero .action {
+    background: #f7ce8d;
+    grid-area: action;
+}
+
+/* ad-block doesn't like "ad" in class names */
+.kitten {
+    grid-area: ad;
+    display: none;
+}
+
+.hero .feature {
+    display: none;
+}
+
+.sidebar {
+    background: #eee0e6;
+    grid-area: sidebar;
+    display: none;
+}
+
+.sidebar .feature {
+    background: rgb(236, 168, 232);
+    height: 100%;
+}
+
+.mobile-kitten img {
+    width: 100%;
+}
+
+.kitten img {
+    width: 100%;
+}
+
+footer {
+    background-color: #dcc3c1;
+    background:rgb(248, 158, 158);
+    grid-area: footer;
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body" 
+            "sidebar" 
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand navigation tools";
+    }
+
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+    .hero {
+        grid-gap: 8px;
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    .sidebar {
+        display: grid;
+    }
+
+    .mobile-kitten img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .hero {
+        grid-gap: 8px;
+
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+    .mobile-kitten {
+        display: none;
+    }
+
+    .kitten {
+        display: block;
+    }
+}
